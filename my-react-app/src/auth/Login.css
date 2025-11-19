@@ -5,7 +5,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh; /* Full viewport height */
+  padding: 5rem 2rem; /* Padding for spacing from navbar and footer */
   background-color: #F5F5DC; /* Beige background color */
 }
 

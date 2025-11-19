@@ -1,14 +1,13 @@
 /* Signup Component Styles */
 
 /* Main container - centers the form on the page with beige background */
-/* Uses min-height instead of height to allow scrolling if content exceeds viewport */
+/* Uses padding for spacing from navbar and footer */
 .signup-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh; /* Minimum full viewport height */
+  padding: 5rem 2rem; /* Padding for spacing from navbar and footer */
   background-color: #F5F5DC; /* Beige background color */
-  padding: 2rem 0; /* Vertical padding for smaller screens */
 }
 
 /* Form container - white background with shadow and rounded corners */

@@ -1,12 +1,13 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FaFacebookF, FaInstagram, FaYoutube } from 'react-icons/fa';
+import { useLanguage } from '../contexts/LanguageContext';
 import '../css/Navbar.css';
 
 const Navbar = () => {
   const [contrast, setContrast] = useState(false);
   const [fontSize, setFontSize] = useState(1);
-  const [language, setLanguage] = useState('EN');
+  const { language, switchLanguage, t } = useLanguage();
 
   const toggleContrast = () => {
     setContrast(!contrast);
@@ -23,9 +24,6 @@ const Navbar = () => {
     document.documentElement.style.fontSize = `${fontSize * 100}%`;
   };
 
-  const switchLanguage = () => {
-    setLanguage(language === 'EN' ? 'हिंदी' : 'EN');
-  }; 
 
   return (
     <>
@@ -46,7 +44,7 @@ const Navbar = () => {
             A+
           </button>
           <button onClick={switchLanguage} className="language-btn">
-            {language}
+            {t('language')}
           </button>
         </div>
       </div> 
@@ -79,40 +77,41 @@ const Navbar = () => {
       <nav className="navbar">
         <ul className="nav-menu">
           <li className="nav-item">
-            <a href="/">Home</a>
+            <a href="/">{t('home')}</a>
           </li>
           <li className="nav-item dropdown">
-            <Link to="/about">About</Link>
+            <Link to="/about">{t('about')}</Link>
             <ul className="dropdown-menu">
-              <li><Link to="/vision">Our Vision</Link></li>
-              <li><Link to="/mission">Our Mission</Link></li>
-              <li><Link to="/values">Our Values</Link></li>
-              <li><Link to="/why-shiksha">Why Shiksha?</Link></li>
+              <li><Link to="/vision">{t('vision')}</Link></li>
+              <li><Link to="/mission">{t('mission')}</Link></li>
+              <li><Link to="/values">{t('values')}</Link></li>
+              <li><Link to="/why-shiksha">{t('whyShiksha')}</Link></li>
             </ul>
           </li>
           <li className="nav-item dropdown">
-            <a href="#registration">Registration</a>
+            <a href="#registration">{t('registration')}</a>
             <ul className="dropdown-menu">
-              <li><a href="#students">Students</a></li>
-              <li><a href="/upcoming">Teachers</a></li>
-              <li><a href="/upcoming">Experts</a></li>
-            </ul> 
+                <li><Link to="/login">{t('students')}</Link></li>
+                <li><Link to="/upcoming">{t('teachers')}</Link></li>
+               <li><Link to="/upcoming">{t('experts')}</Link></li>
+
+            </ul>
           </li>
           <li className="nav-item dropdown">
-            <a href="/services">Services</a>
+            <a href="#explore-services">{t('services')}</a>
             <ul className="dropdown-menu">
-              <li><a href="#online">Online</a></li>
-              <li><a href="#offline">Offline</a></li>
-              <li><a href="#classroom">Classroom</a></li>
-              <li><a href="#software-devlopment">Software Development</a></li>
-            </ul> 
+              <li><a href="#explore-services">{t('online')}</a></li>
+              <li><span className="locked-link">{t('offline')} <span className="lock-icon">🔒</span></span></li>
+              <li><span className="locked-link">{t('classroom')} <span className="lock-icon">🔒</span></span></li>
+              <li><span className="locked-link">{t('softwareDev')} <span className="lock-icon">🔒</span></span></li>
+            </ul>
           </li>
           <li className="nav-item dropdown">
-            <a href="#genral-studies">General Studies</a>
+            <a href="#genral-studies">{t('generalStudies')}</a>
             <ul className="dropdown-menu">
-              <li><a href="/current-affairs">Current Affairs</a></li>
-            </ul> 
-          </li> 
+              <li><a href="/current-affairs">{t('currentAffairs')}</a></li>
+            </ul>
+          </li>
           {/*<li className="nav-item dropdown">
             <a href="#councelling">Councelling</a>
              <ul className="dropdown-menu">
@@ -122,20 +121,20 @@ const Navbar = () => {
             </ul> 
           </li>*/}
            <li className="nav-item">
-            <span className="locked-link">
-              Counselling <span className="lock-icon">🔒</span>
-            </span>
-          </li>
-          <li className="nav-item">
-            <span className="locked-link">
-              Forum <span className="lock-icon">🔒</span>
-            </span>
-          </li>
-          <li className="nav-item">
-            <span className="locked-link">
-              Reddit-Ref <span className="lock-icon">🔒</span>
-            </span>
-          </li>
+           <span className="locked-link">
+             {t('counselling')} <span className="lock-icon">🔒</span>
+           </span>
+         </li>
+         <li className="nav-item">
+           <span className="locked-link">
+             {t('forum')} <span className="lock-icon">🔒</span>
+           </span>
+         </li>
+         <li className="nav-item">
+           <span className="locked-link">
+             {t('redditRef')} <span className="lock-icon">🔒</span>
+           </span>
+         </li>
           {/*} <li className="nav-item dropdown">
             <a href="#training">Training</a>
              <ul className="dropdown-menu">
@@ -145,16 +144,16 @@ const Navbar = () => {
           </li> */}
           <li className="nav-item">
             <span className="locked-link">
-              Training <span className="lock-icon">🔒</span>
+              {t('training')} <span className="lock-icon">🔒</span>
             </span>
-          </li>             
+          </li>
           <li className="nav-item">
             <span className="locked-link">
-              Placements <span className="lock-icon">🔒</span>
+              {t('placements')} <span className="lock-icon">🔒</span>
             </span>
-          </li>     
+          </li>
           <li className="nav-item">
-            <a href="/contact">Contact</a>
+            <a href="/contact">{t('contact')}</a>
           </li>
         </ul>
       </nav>

@@ -8,9 +8,11 @@
 
 import React, { useState } from 'react'; // Import React and useState hook
 import { Link } from 'react-router-dom'; // Import Link for navigation
+import { useLanguage } from '../contexts/LanguageContext'; // Import language context
 import './Signup.css'; // Import CSS for styling
 
 const Signup = () => {
+  const { t } = useLanguage(); // Get translation function
   // State object to store all form input values
   const [formData, setFormData] = useState({
     firstName: '',
@@ -52,11 +54,11 @@ const Signup = () => {
   return (
     <div className="signup-container"> {/* Main container with beige background */}
       <div className="signup-form"> {/* Form container with white background and shadow */}
-        <h2>Sign Up</h2> {/* Form title */}
+        <h2>{t('signupTitle')}</h2> {/* Form title */}
         <form onSubmit={handleSubmit}> {/* Form element with submit handler */}
           {/* First Name Input */}
           <div className="form-group">
-            <label htmlFor="firstName">First Name</label>
+            <label htmlFor="firstName">{t('firstName')}</label>
             <input
               type="text"
               id="firstName"
@@ -69,7 +71,7 @@ const Signup = () => {
 
           {/* Last Name Input */}
           <div className="form-group">
-            <label htmlFor="lastName">Last Name</label>
+            <label htmlFor="lastName">{t('lastName')}</label>
             <input
               type="text"
               id="lastName"
@@ -82,7 +84,7 @@ const Signup = () => {
 
           {/* Address Input */}
           <div className="form-group">
-            <label htmlFor="Address">Address</label>
+            <label htmlFor="Address">{t('address')}</label>
             <input
               type="text"
               id="Address"
@@ -95,7 +97,7 @@ const Signup = () => {
 
           {/* Email Input */}
           <div className="form-group">
-            <label htmlFor="email">Email</label>
+            <label htmlFor="email">{t('email')}</label>
             <input
               type="email"
               id="email"
@@ -108,7 +110,7 @@ const Signup = () => {
 
           {/* Password Input */}
           <div className="form-group">
-            <label htmlFor="password">Password</label>
+            <label htmlFor="password">{t('password')}</label>
             <input
               type="password"
               id="password"
@@ -121,7 +123,7 @@ const Signup = () => {
 
           {/* Confirm Password Input */}
           <div className="form-group">
-            <label htmlFor="confirmPassword">Confirm Password</label>
+            <label htmlFor="confirmPassword">{t('confirmPassword')}</label>
             <input
               type="password"
               id="confirmPassword"
@@ -134,7 +136,7 @@ const Signup = () => {
 
           {/* Class Selection Dropdown */}
           <div className="form-group">
-            <label htmlFor="class">Class</label>
+            <label htmlFor="class">{t('class')}</label>
             <select
               id="class"
               name="class"
@@ -142,7 +144,7 @@ const Signup = () => {
               onChange={handleChange}
               required
             >
-              <option value="">Select Class</option>
+              <option value="">{t('selectClass')}</option>
               <option value="8">8</option>
               <option value="9">9</option>
               <option value="10">10</option>
@@ -154,7 +156,7 @@ const Signup = () => {
           {/* Conditional Subject Stream Dropdown - only shown for classes 11 and 12 */}
           {showSubjectDropdown && (
             <div className="form-group">
-              <label htmlFor="subject">Subject Stream</label>
+              <label htmlFor="subject">{t('subjectStream')}</label>
               <select
                 id="subject"
                 name="subject"
@@ -162,17 +164,17 @@ const Signup = () => {
                 onChange={handleChange}
                 required
               >
-                <option value="">Select Subject</option>
-                <option value="Science">Science</option>
-                <option value="Arts">Arts</option>
-                <option value="Commerce">Commerce</option>
+                <option value="">{t('selectSubject')}</option>
+                <option value="Science">{t('science')}</option>
+                <option value="Arts">{t('arts')}</option>
+                <option value="Commerce">{t('commerce')}</option>
               </select>
             </div>
           )}
 
-          <button type="submit" className="signup-btn">Sign Up</button> {/* Submit button */}
+          <button type="submit" className="signup-btn">{t('signup')}</button> {/* Submit button */}
         </form>
-        <p>Already have an account? <Link to="/login">Login</Link></p> {/* Link to login page */}
+        <p>{t('alreadyHaveAccount')} <Link to="/login">{t('login')}</Link></p> {/* Link to login page */}
       </div>
     </div>
   );

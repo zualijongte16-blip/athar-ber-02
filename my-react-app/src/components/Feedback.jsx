@@ -1,120 +1,86 @@
-import React, { useState } from "react";
-import emailjs from "@emailjs/browser";
-import "../css/Feedback.css";
+import React from "react";
+import "../css/Feedback.css"; // Import the CSS file
 
 const Feedback = () => {
-  const [formData, setFormData] = useState({
-    firstName: "",
-    lastName: "",
-    email: "",
-    message: "",
-  });
-
-  const [status, setStatus] = useState("");
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
-  };
-
-  const sendMail = async (e) => {
-    e.preventDefault();
-
-    const params = {
-      from_name: `${formData.firstName} ${formData.lastName}`,
-      email_id: formData.email,
-      message: formData.message,
-    };
-
-    try {
-      await emailjs.send(
-        "service_57mz8ij",
-        "template_chr6yzo",
-        params,
-        "c_crO6oE62atSX0FN"
-      );
-      setStatus("Feedback sent successfully!");
-      setFormData({ firstName: "", lastName: "", email: "", message: "" });
-    } catch (error) {
-      console.error(error);
-      setStatus("Failed to send feedback.");
-    }
-  };
-
   return (
-    <div className="contact-page">
-      <div className="contact-container">
-        <div className="contact-text">
-          <h2>
+    <div className="feedback-container">
+      <div className="feedback-content">
+        {/* Left Side Text */}
+        <div className="feedback-left">
+          <h1 className="feedback-title">
             Feed <span>back</span>
-          </h2>
-          <p>
-            "We’d love to hear from you! Your feedback helps us improve and serve you better."
-          </p>
-          <a href="mailto:info@shikshacom.com" className="contact-email">
-             info@shikshacom.com
-          </a>
+          </h1>
 
+          <p className="feedback-description">
+            "We’d love to hear from you! Your feedback helps us improve and
+            serve you better."
+          </p>
+
+          <p className="feedback-email">info@shikshacom.com</p>
         </div>
 
-        <form className="contact-form" onSubmit={sendMail}>
-          <label>
-            Name (required)
-            <div className="name-inputs">
-              <input
-                type="text"
-                name="firstName"
-                placeholder="First Name"
-                value={formData.firstName}
-                onChange={handleChange}
-                required
-              />
-              <input
-                type="text"
-                name="lastName"
-                placeholder="Last Name"
-                value={formData.lastName}
-                onChange={handleChange}
-                required
-              />
-            </div>
-          </label>
+        {/* Right Side Form */}
+        <form
+          className="feedback-form"
+          action="https://api.web3forms.com/submit"
+          method="POST"
+        >
+          <input
+            type="hidden"
+            name="access_key"
+            value="a0608d50-fde6-4fa4-84ef-088941c2ece7"
+          />
 
-          <label>
-            Email (required)
+          {/* Name */}
+          <label className="feedback-form-label">Name (required)</label>
+          <div className="feedback-name-row">
             <input
-              type="email"
-              name="email"
-              placeholder="Email"
-              value={formData.email}
-              onChange={handleChange}
+              type="text"
+              name="first_name"
+              placeholder="YourFirst Name"
               required
             />
-          </label>
-
-          <label>
-            Message (required)
-            <textarea
-              name="message"
-              placeholder="Your message..."
-              value={formData.message}
-              onChange={handleChange}
+            <input
+              type="text"
+              name="last_name"
+              placeholder="Your Last Name"
               required
-            ></textarea>
-          </label>
+            />
+          </div>
 
-          <button type="submit">Send</button>
+          {/* Email */}
+          <label className="feedback-form-label">Email (required)</label>
+          <input
+            type="email"
+            name="email"
+            placeholder="Your Email"
+            className="feedback-full-input"
+            required
+          />
 
-          {status && <p className="status-message">{status}</p>}
+          {/* Message */}
+          <label className="feedback-form-label">Message (required)</label>
+          <textarea
+            name="message"
+            placeholder="Your message..."
+            required
+          ></textarea>
+
+          {/* Honeypot */}
+          <input
+            type="checkbox"
+            name="botcheck"
+            style={{ display: "none" }}
+          />
+
+          {/* Button */}
+          <button type="submit" className="feedback-submit-btn">
+            Send
+          </button>
         </form>
       </div>
     </div>
   );
 };
 
-export default Feedback; 
-
-
+export default Feedback;

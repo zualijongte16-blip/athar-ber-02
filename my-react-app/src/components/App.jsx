@@ -16,6 +16,9 @@ import Contact from './Contact'
 import ExploreServices from './ExploreServices'
 import CurrentAffairs from './CurrentAffairs'
 import Upcoming from './Upcoming'
+import Login from '../auth/Login'
+import Signup from '../auth/Signup'
+import Courses from './Courses'
 
 function App() {
   return (
@@ -75,6 +78,21 @@ function App() {
             <Footer />
           </div>
         } />
+
+        <Route path="/login" element={
+          <div className="page-content">
+            <Navbar />
+            <Login />
+            <Footer />
+          </div>
+        } />
+        <Route path="/signup" element={
+          <div className="page-content">
+            <Navbar />
+            <Signup />
+            <Footer />
+          </div>
+        } />
         <Route path="/current-affairs" element={
           <div className="page-content">
             <Navbar />
@@ -82,6 +100,22 @@ function App() {
             <Footer />
           </div>
         } />
+        <Route path="/current-affairs" element={
+          <div className="page-content">
+            <Navbar />
+            <CurrentAffairs />
+            <Footer />
+          </div>
+        } />
+        
+        <Route path="/courses" element={
+    <div className="page-content">
+      <Navbar />
+      <Courses />
+      <Footer />
+    </div>
+  } />
+
       <Route path="/upcoming" element={<Upcoming />} />
       </Routes>
     </div>

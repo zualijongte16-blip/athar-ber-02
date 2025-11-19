@@ -7,9 +7,11 @@
 
 import React, { useState } from 'react'; // Import React and useState hook for state management
 import { Link } from 'react-router-dom'; // Import Link for navigation
+import { useLanguage } from '../contexts/LanguageContext'; // Import language context
 import './Login.css'; // Import the CSS file for styling
 
 const Login = () => {
+  const { t } = useLanguage(); // Get translation function
   // State variables to store email and password input values
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -28,10 +30,10 @@ const Login = () => {
   return (
     <div className="login-container"> {/* Main container with beige background */}
       <div className="login-form"> {/* Form container with white background and shadow */}
-        <h2>Login</h2> {/* Form title */}
+        <h2>{t('loginTitle')}</h2> {/* Form title */}
         <form onSubmit={handleSubmit}> {/* Form element with submit handler */}
           <div className="form-group"> {/* Container for email input group */}
-            <label htmlFor="email">Email</label> {/* Label for email input */}
+            <label htmlFor="email">{t('email')}</label> {/* Label for email input */}
             <input
               type="email" // Input type for email validation
               id="email" // Unique ID for accessibility
@@ -41,7 +43,7 @@ const Login = () => {
             />
           </div>
           <div className="form-group"> {/* Container for password input group */}
-            <label htmlFor="password">Password</label> {/* Label for password input */}
+            <label htmlFor="password">{t('password')}</label> {/* Label for password input */}
             <input
               type="password" // Input type to hide password text
               id="password" // Unique ID for accessibility
@@ -50,9 +52,9 @@ const Login = () => {
               required // Make field required
             />
           </div>
-          <button type="submit" className="login-btn">Login</button> {/* Submit button */}
+          <button type="submit" className="login-btn">{t('login')}</button> {/* Submit button */}
         </form>
-        <p>Don't have an account? <Link to="/signup">Sign up</Link></p> {/* Link to signup page */}
+        <p>{t('dontHaveAccount')} <Link to="/signup">{t('signup')}</Link></p> {/* Link to signup page */}
       </div>
     </div>
   );

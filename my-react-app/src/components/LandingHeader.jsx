@@ -1,6 +1,9 @@
+import { useLanguage } from '../contexts/LanguageContext';
+import { Link } from 'react-router-dom';
 import '../css/LandingHeader.css';
 
 const LandingHeader = () => {
+  const { t } = useLanguage();
   return (
     <div className="landing-header">
       <div className="search-section">
@@ -12,8 +15,8 @@ const LandingHeader = () => {
       </div>
       {/* Login and Signup Buttons */}
       <div className="auth-buttons">
-          <button className="login-btn">Login</button>
-          <button className="signup-btn">Signup</button>
+          <Link to="/login" className="login-btn">Login</Link>
+          <Link to="/signup" className="signup-btn">Signup</Link>
       </div>
       {/*<div className="header-icons">
         <button className="icon-btn" aria-label="Accessibility">
