@@ -5,7 +5,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 5rem 2rem; /* Padding for spacing from navbar and footer */
+  height: 100vh; /* Full viewport height */
   background-color: #F5F5DC; /* Beige background color */
 }
 
@@ -56,7 +56,7 @@
 }
 
 /* Login button styling */
-.login-btn {
+/*.login-btn {
   width: 100%; 
   padding: 0.75rem;
   background-color: #F5F5DC; 
@@ -69,8 +69,8 @@
 } 
 
 /* Login button hover state - slightly darker beige */
-.login-btn:hover {
-  background-color: #E8E8CC; /* Lighter beige on hover */
+/*.login-btn:hover {
+  background-color: #E8E8CC; 
 }
 
 /* Paragraph styling for signup link */
