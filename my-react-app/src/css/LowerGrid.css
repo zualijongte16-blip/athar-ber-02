@@ -1,0 +1,124 @@
+.lower-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+/* ========================
+   STATS SECTION
+======================== */
+.stats-section {
+  background: #EFE3D1;
+  padding: 25px 0;
+  margin: 40px 0;
+  border-top: 1px solid #DCCCB4;
+  border-bottom: 1px solid #DCCCB4;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.stat {
+  text-align: center;
+}
+
+.stat .number {
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.stat .label {
+  font-size: 14px;
+  color: #666;
+}
+
+/* ========================
+   WHY CHOOSE SHIKSHA HEADING
+======================== */
+.why-choose-heading {
+  text-align: center;
+  padding: 2rem 0;
+  margin: 2rem 0;
+}
+
+.why-choose-heading h2 {
+  color: #222;
+  margin: 0;
+}
+
+
+/* ========================
+   WHY CHOOSE SECTION
+======================== */
+.why-choose-section {
+  display: flex;
+  padding: 40px;
+  gap: 40px;
+}
+
+.features {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.feature-card {
+  background: #F7EFE2;
+  border: 1px solid #E4D8C8;
+  border-radius: 12px;
+  padding: 16px;
+  height: 70px;
+}
+
+.feature-card h4 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.feature-card p {
+  margin: 4px 0 0;
+  font-size: 0.85rem;
+  color: #6A6A6A;
+}
+
+.promo-video {
+  flex: 1;
+  background: #D9D9D9;
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 260px;
+}
+
+
+/* Responsive */
+@media (max-width: 768px) {
+  .lower-grid {
+    padding: 20px;
+    gap: 20px;
+  }
+
+  .why-choose-section {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .feature-cards {
+    align-items: center;
+  }
+
+  .feature-card {
+    width: 100%;
+    max-width: 350px;
+  }
+
+  .promo-video {
+    width: 100%;
+    max-width: 420px;
+    height: 250px;
+  }
+}
