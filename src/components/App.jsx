@@ -14,11 +14,11 @@ import WhySiksha from './WhySiksha'
 import '../css/App.css'
 import Contact from './Contact'
 import ExploreServices from './ExploreServices'
-import CurrentAffairs from './CurrentAffairs'
 import Upcoming from './Upcoming'
 import Login from '../auth/Login'
 import Signup from '../auth/Signup'
 import Courses from './Courses'
+import GeneralStudies from './GeneralStudies'
 import TermsCondition from './TermsCondition'
 
 function App() {
@@ -94,20 +94,8 @@ function App() {
             <Footer />
           </div>
         } />
-        <Route path="/current-affairs" element={
-          <div className="page-content">
-            <Navbar />
-            <CurrentAffairs />
-            <Footer />
-          </div>
-        } />
-        <Route path="/current-affairs" element={
-          <div className="page-content">
-            <Navbar />
-            <CurrentAffairs />
-            <Footer />
-          </div>
-        } />
+        
+      
         
         <Route path="/courses" element={
     <div className="page-content">
@@ -116,6 +104,14 @@ function App() {
       <Footer />
     </div>
   } />
+
+        <Route path="/general-studies" element={
+          <div className="page-content">
+            <Navbar />
+            <GeneralStudies />
+            <Footer />
+          </div>
+        } />
 
       <Route path="/upcoming" element={<Upcoming />} />
 

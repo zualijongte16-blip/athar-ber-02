@@ -76,11 +76,12 @@
 
 .courses-stream-card,
 .courses-subject-card {
-  background-color: #f8f9fa;
-  border: 1px solid #dee2e6;
+  border: 1px solid #ddd;
   border-radius: 8px;
-  padding: 20px;
+  padding: 16px;
+  width: 200px;
   text-align: center;
+  background-color: #faf0e6;
   cursor: pointer;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -89,6 +90,11 @@
 .courses-subject-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.subject-icon {
+  font-size: 3rem;
+  margin-bottom: 15px;
 }
 
 .courses-stream-card h4,

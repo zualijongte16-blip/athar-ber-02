@@ -1,5 +1,9 @@
-# TODO for Making Tabs Clickable Buttons in ExploreServices
+# TODO: Unlock General Studies
 
-- [x] Update ExploreServices.jsx: Change div.tab to button.tab, div.sub-tab to button.sub-tab, add title="Upcoming feature" to non-Online buttons, remove alert from handleMainTabClick
-- [x] Update ExploreServices.css: Add hover styles for .tab and .sub-tab buttons
-- [ ] Test the changes by running the app to ensure tabs behave as expected
+## Steps to Complete
+- [x] Create GeneralStudies.jsx component with Current Affairs and Daily Topic tabs, date picker, and quiz functionality
+- [x] Update App.jsx to import GeneralStudies and add "/general-studies" route
+- [x] Update Courses.jsx to make "GK" subject cards clickable and navigate to "/general-studies"
+- [x] Create GeneralStudies.css for styling
+- [x] Test navigation from Courses to General Studies page
+- [x] Test component rendering and quiz functionality

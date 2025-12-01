@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import '../css/ExploreServices.css';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const ExploreServices = () => {
+  const navigate = useNavigate();
   const [selectedMainTab, setSelectedMainTab] = useState('Online');
   const [selectedSubTab, setSelectedSubTab] = useState('Class 9');
 
@@ -55,6 +56,13 @@ const ExploreServices = () => {
     }
   };
 
+  const handleSubjectClick = (subjectName) => {
+    if (subjectName === 'GK') {
+      navigate('/general-studies');
+    }
+    // For other subjects, you can add navigation to specific pages if needed
+  };
+
   return (
     <div id="explore-services" className="explore-services-container">
       <div className="explore-services-canvas">
@@ -78,7 +86,12 @@ const ExploreServices = () => {
 
         <div className="cards-container">
           {selectedSubTab && subjects[selectedSubTab] && subjects[selectedSubTab].map((subject, index) => (
-            <div className="service-card" key={index}>
+            <div
+              className="service-card"
+              key={index}
+              onClick={() => handleSubjectClick(subject.name)}
+              style={{ cursor: subject.name === 'GK' ? 'pointer' : 'default' }}
+            >
               <div className="card-icon">{subject.icon}</div>
               <h3 className="card-title">{subject.name}</h3>
               <p className="card-subtitle"></p>

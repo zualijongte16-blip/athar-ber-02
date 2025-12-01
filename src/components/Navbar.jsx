@@ -123,9 +123,7 @@ const Navbar = () => {
             </ul>
           </li>*/}
           <li className="nav-item">
-            <span className="locked-link">
-              {t('generalStudies')} <span className="lock-icon">🔒</span>
-            </span>
+            <Link to="/general-studies">{t('generalStudies')}</Link>
           </li>
           {/*<li className="nav-item dropdown">
             <a href="#councelling">{t('counselling')}</a>
